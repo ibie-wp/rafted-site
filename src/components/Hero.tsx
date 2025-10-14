@@ -1,81 +1,58 @@
 import { Button } from "./ui/button";
-import { ArrowDown, Mail, Linkedin, Github } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import { ArrowDown } from "lucide-react";
 
 export function Hero() {
-  const scrollToContact = () => {
-    const element = document.getElementById("contact");
+  const scrollToProjects = () => {
+    const element = document.getElementById("projects");
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative bg-background"
     >
-      {/* Background */}
-      <div 
-        className="absolute inset-0 z-0"
-        style={{
-          backgroundImage: `url(${heroBg})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" />
-      </div>
-
-      {/* Content */}
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in-up">
-          <div className="space-y-4">
-            <p className="text-lg md:text-xl text-muted-foreground font-medium">
-              UX Designer & Product Thinker
-            </p>
-            <h1 className="gradient-primary bg-clip-text text-transparent">
-              Translating Ideas Into Experiences
+      <div className="container mx-auto px-6 py-32">
+        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
+          {/* Main Heading */}
+          <div className="space-y-6">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight">
+              Building experiences
+              <br />
+              <span className="text-muted-foreground">with clarity</span>
             </h1>
+            
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              From full-stack development to UX design — I help teams make clear, 
-              user-driven decisions and turn complex ideas into simple, usable experiences.
+              UX Designer focused on turning complex ideas into simple, 
+              usable digital experiences. From full-stack development to 
+              user-centered design.
             </p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Button 
-              variant="hero" 
               size="lg"
-              onClick={scrollToContact}
-              className="group"
+              onClick={scrollToProjects}
+              className="text-base px-8"
             >
-              Get In Touch
-              <Mail className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              View Projects
             </Button>
-            <Button variant="outline" size="lg" asChild>
-              <a href="#about" className="flex items-center gap-2">
-                Learn More
-                <ArrowDown className="h-4 w-4" />
+            <Button 
+              variant="outline" 
+              size="lg"
+              asChild
+              className="text-base px-8"
+            >
+              <a href="mailto:ibrahimkarlie17@gmail.com">
+                Get In Touch
               </a>
             </Button>
           </div>
 
-          {/* Social Links */}
-          <div className="flex items-center justify-center gap-4 pt-8">
-            <Button variant="ghost" size="icon" asChild>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <Linkedin className="h-5 w-5" />
-              </a>
-            </Button>
-            <Button variant="ghost" size="icon" asChild>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <Github className="h-5 w-5" />
-              </a>
-            </Button>
-            <Button variant="ghost" size="icon" asChild>
-              <a href="mailto:your.email@example.com" aria-label="Email">
-                <Mail className="h-5 w-5" />
-              </a>
-            </Button>
+          {/* Scroll Indicator */}
+          <div className="pt-16 animate-bounce">
+            <ArrowDown className="h-6 w-6 mx-auto text-muted-foreground" />
           </div>
         </div>
       </div>
