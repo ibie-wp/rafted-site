@@ -10,26 +10,27 @@ export function Hero() {
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex items-center justify-center relative bg-background"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden"
     >
-      <div className="container mx-auto px-6 py-32">
-        <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
-          {/* Greeting with Animation */}
-          <div className="space-y-2 animate-fade-in">
-            <p className="text-xl md:text-2xl text-primary font-medium animate-bounce">
-              Hi there 👋
-            </p>
-          </div>
-
-          {/* Main Heading with Name */}
-          <div className="space-y-6">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight">
-              I'm <span className="text-primary">Ibrahim Karlie</span>
-              <br />
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 animate-gradient"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+      
+      <div className="container mx-auto px-6 py-32 relative z-10">
+        <div className="max-w-4xl mx-auto text-center space-y-12 animate-fade-in">
+          {/* Main Heading with Name - Separated for clarity */}
+          <div className="space-y-8">
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight leading-none">
+              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-fade-in">
+                Ibrahim Karlie
+              </span>
+            </h1>
+            
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-foreground">
               Building experiences
               <br />
               <span className="text-muted-foreground">with clarity</span>
-            </h1>
+            </h2>
             
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               UX Designer focused on turning complex ideas into simple, 
@@ -61,10 +62,13 @@ export function Hero() {
 
           {/* Scroll Indicator */}
           <div className="pt-16 animate-bounce">
-            <ArrowDown className="h-6 w-6 mx-auto text-muted-foreground" />
+            <ArrowDown className="h-8 w-8 mx-auto text-primary" />
           </div>
         </div>
       </div>
+      
+      {/* Decorative section divider */}
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent"></div>
     </section>
   );
 }
