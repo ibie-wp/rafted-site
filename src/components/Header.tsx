@@ -25,27 +25,20 @@ export function Header() {
           : 'bg-transparent'
       }`}
     >
-      <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <button 
-          onClick={() => scrollToSection("hero")}
-          className="text-xl font-bold hover:opacity-70 transition-smooth"
-        >
-          Ibrahim Karlie
-        </button>
-        
-        <div className="flex items-center gap-6">
+      <nav className="container mx-auto px-6 py-4 flex items-center justify-center">
+        <div className="flex items-center gap-8">
           <div className="hidden md:flex items-center gap-8">
-            <button
-              onClick={() => scrollToSection("projects")}
-              className="text-sm font-medium hover:text-primary transition-smooth"
-            >
-              Projects
-            </button>
             <button
               onClick={() => scrollToSection("about")}
               className="text-sm font-medium hover:text-primary transition-smooth"
             >
               About
+            </button>
+            <button
+              onClick={() => scrollToSection("projects")}
+              className="text-sm font-medium hover:text-primary transition-smooth"
+            >
+              Projects
             </button>
             <button
               onClick={() => scrollToSection("skills")}

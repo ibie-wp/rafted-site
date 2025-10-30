@@ -1,34 +1,51 @@
 import { Card } from "./ui/card";
 import { Badge } from "./ui/badge";
-import { ExternalLink, Github } from "lucide-react";
 import { Button } from "./ui/button";
+import { ExternalLink } from "lucide-react";
+import { useState } from "react";
 
 const projects = [
   {
-    title: "Portfolio Website",
-    period: "Feb 2024 – Mar 2024",
-    description: "Personal portfolio website showcasing projects and skills with responsive design for optimal mobile experience.",
-    technologies: ["HTML", "CSS", "JavaScript", "Responsive Design"],
+    title: "Personal Portfolio",
+    description: "A modern, responsive portfolio website showcasing UX/UI design projects with interactive elements and smooth animations.",
+    technologies: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     highlights: [
-      "Responsive design principles",
-      "Mobile-first approach",
-      "Hosted on GitHub Pages"
-    ]
+      "Responsive design with mobile-first approach",
+      "Dark mode implementation",
+      "Interactive project showcases"
+    ],
+    githubLink: "https://github.com/ibrahimkarlie", // Update with actual repo path later
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop" // Placeholder
   },
   {
     title: "E-commerce Web App",
-    period: "Apr 2024 – Jun 2024",
-    description: "Collaborative Vue.js project simulating a full-featured e-commerce platform with team-based development practices.",
-    technologies: ["Vue.js", "JavaScript", "Git", "GitHub"],
+    description: "Full-featured e-commerce platform with user authentication, product management, and shopping cart functionality.",
+    technologies: ["Vue.js", "JavaScript", "Node.js", "MongoDB"],
     highlights: [
-      "Agile methodology",
-      "User flows & wireframing",
-      "Version control with Git"
-    ]
+      "User authentication and authorization",
+      "Product filtering and search",
+      "Secure payment integration"
+    ],
+    githubLink: "https://github.com/ibrahimkarlie", // Update with actual repo path later
+    image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&h=600&fit=crop" // Placeholder
+  },
+  {
+    title: "Task Management Dashboard",
+    description: "Intuitive task management application with drag-and-drop functionality, team collaboration, and real-time updates.",
+    technologies: ["React", "Redux", "Node.js", "Socket.io"],
+    highlights: [
+      "Real-time collaboration features",
+      "Drag-and-drop task organization",
+      "Team productivity analytics"
+    ],
+    githubLink: "https://github.com/ibrahimkarlie", // Update with actual repo path later
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=600&fit=crop" // Placeholder
   }
 ];
 
 export function Projects() {
+  const [flippedCard, setFlippedCard] = useState<number | null>(null);
+
   return (
     <section id="projects" className="section-spacing dark-section">
       <div className="container mx-auto px-6">
@@ -45,52 +62,74 @@ export function Projects() {
           </div>
 
           {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 gap-8 animate-fade-in-up">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in-up">
             {projects.map((project, index) => (
-              <Card 
+              <div
                 key={index}
-                className="bg-card border-border/50 p-8 space-y-6 hover:shadow-card transition-smooth group"
+                className="relative h-[400px] perspective-1000"
+                onMouseEnter={() => setFlippedCard(index)}
+                onMouseLeave={() => setFlippedCard(null)}
               >
-                {/* Header */}
-                <div className="space-y-3">
-                  <div className="flex items-start justify-between gap-4">
-                    <h3 className="text-2xl font-bold group-hover:text-primary transition-smooth">
-                      {project.title}
-                    </h3>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    {project.period}
-                  </p>
-                </div>
-
-                {/* Description */}
-                <p className="text-muted-foreground leading-relaxed">
-                  {project.description}
-                </p>
-
-                {/* Highlights */}
-                <div className="space-y-2">
-                  {project.highlights.map((highlight, idx) => (
-                    <div key={idx} className="flex items-start gap-2">
-                      <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                      <p className="text-sm text-muted-foreground">{highlight}</p>
+                <div
+                  className={`relative w-full h-full transition-transform duration-500 transform-style-3d ${
+                    flippedCard === index ? "rotate-y-180" : ""
+                  }`}
+                >
+                  {/* Front of Card */}
+                  <Card className="absolute w-full h-full backface-hidden bg-card border-border/50 overflow-hidden">
+                    <div className="relative h-full">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        className="w-full h-3/4 object-cover"
+                      />
+                      <div className="p-6 h-1/4 flex items-center justify-center">
+                        <h3 className="text-2xl font-bold text-center">
+                          {project.title}
+                        </h3>
+                      </div>
                     </div>
-                  ))}
-                </div>
+                  </Card>
 
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2 pt-2">
-                  {project.technologies.map((tech, idx) => (
-                    <Badge 
-                      key={idx} 
-                      variant="secondary"
-                      className="text-xs"
+                  {/* Back of Card */}
+                  <Card className="absolute w-full h-full backface-hidden rotate-y-180 bg-card border-border/50 p-6 flex flex-col justify-between">
+                    <div className="space-y-4">
+                      <h3 className="text-xl font-bold">{project.title}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {project.description}
+                      </p>
+                      
+                      {/* Technologies */}
+                      <div className="flex flex-wrap gap-2">
+                        {project.technologies.map((tech, idx) => (
+                          <Badge 
+                            key={idx} 
+                            variant="secondary"
+                            className="text-xs"
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+
+                    <Button 
+                      asChild
+                      className="w-full"
                     >
-                      {tech}
-                    </Badge>
-                  ))}
+                      <a 
+                        href={project.githubLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2"
+                      >
+                        <ExternalLink className="h-4 w-4" />
+                        View on GitHub
+                      </a>
+                    </Button>
+                  </Card>
                 </div>
-              </Card>
+              </div>
             ))}
           </div>
         </div>

@@ -17,16 +17,16 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 10%;
 
-    --primary: 0 84% 60%;
+    --primary: 262 83% 58%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 10%;
+    --secondary: 221 83% 53%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 96%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 0 84% 60%;
+    --accent: 142 76% 36%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,7 +34,7 @@ All colors MUST be HSL.
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 0 84% 60%;
+    --ring: 262 83% 58%;
 
     --radius: 0.5rem;
 
@@ -43,6 +43,7 @@ All colors MUST be HSL.
     
     --shadow-soft: 0 2px 20px -4px hsl(0 0% 0% / 0.1);
     --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.08);
+    --shadow-glow: 0 0 40px hsl(262 83% 58% / 0.3);
     
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -57,16 +58,16 @@ All colors MUST be HSL.
     --popover: 0 0% 14%;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 0 84% 65%;
+    --primary: 262 83% 65%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 18%;
-    --secondary-foreground: 0 0% 95%;
+    --secondary: 221 83% 60%;
+    --secondary-foreground: 0 0% 100%;
 
     --muted: 0 0% 18%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 0 84% 65%;
+    --accent: 142 76% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 50%;
@@ -74,13 +75,14 @@ All colors MUST be HSL.
 
     --border: 0 0% 20%;
     --input: 0 0% 20%;
-    --ring: 0 84% 65%;
+    --ring: 262 83% 65%;
 
     --dark-section: 0 0% 5%;
     --dark-section-foreground: 0 0% 95%;
     
     --shadow-soft: 0 2px 20px -4px hsl(0 0% 0% / 0.3);
     --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.2);
+    --shadow-glow: 0 0 40px hsl(262 83% 65% / 0.4);
   }
 }
 
@@ -130,5 +132,25 @@ All colors MUST be HSL.
 
   .section-spacing {
     @apply py-20 md:py-32;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .transform-style-3d {
+    transform-style: preserve-3d;
+  }
+
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
+
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
   }
 }

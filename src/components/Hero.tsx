@@ -14,9 +14,18 @@ export function Hero() {
     >
       <div className="container mx-auto px-6 py-32">
         <div className="max-w-4xl mx-auto text-center space-y-8 animate-fade-in">
-          {/* Main Heading */}
+          {/* Greeting with Animation */}
+          <div className="space-y-2 animate-fade-in">
+            <p className="text-xl md:text-2xl text-primary font-medium animate-bounce">
+              Hi there 👋
+            </p>
+          </div>
+
+          {/* Main Heading with Name */}
           <div className="space-y-6">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-tight">
+              I'm <span className="text-primary">Ibrahim Karlie</span>
+              <br />
               Building experiences
               <br />
               <span className="text-muted-foreground">with clarity</span>
@@ -33,20 +42,20 @@ export function Hero() {
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Button 
               size="lg"
+              onClick={() => {
+                const element = document.getElementById("about");
+                element?.scrollIntoView({ behavior: "smooth" });
+              }}
+              className="text-base px-8"
+            >
+              About Me
+            </Button>
+            <Button 
+              size="lg"
               onClick={scrollToProjects}
               className="text-base px-8"
             >
-              View Projects
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              asChild
-              className="text-base px-8"
-            >
-              <a href="mailto:ibrahimkarlie17@gmail.com">
-                Get In Touch
-              </a>
+              Featured Work
             </Button>
           </div>
 
