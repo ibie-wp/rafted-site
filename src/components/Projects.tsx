@@ -28,7 +28,7 @@ const projects = [
 
 export function Projects() {
   return (
-    <section id="projects" className="section-spacing dark-section">
+    <section id="projects" className="section-spacing section-light">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto space-y-16">
           {/* Header */}
@@ -92,6 +92,9 @@ export function Projects() {
           </div>
         </div>
       </div>
+      
+      {/* Section fade effect */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none"></div>
     </section>
   );
 }

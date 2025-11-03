@@ -10,18 +10,17 @@ export function Hero() {
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden section-light"
     >
-      {/* Animated gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/20 animate-gradient"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))]"></div>
+      {/* Subtle gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10"></div>
       
       <div className="container mx-auto px-6 py-32 relative z-10">
         <div className="max-w-4xl mx-auto text-center space-y-12 animate-fade-in">
           {/* Main Heading with Name - Separated for clarity */}
           <div className="space-y-8">
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight leading-none">
-              <span className="bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent animate-fade-in">
+              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-fade-in">
                 Ibrahim Karlie
               </span>
             </h1>
@@ -68,7 +67,7 @@ export function Hero() {
       </div>
       
       {/* Decorative section divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-20"></div>
     </section>
   );
 }

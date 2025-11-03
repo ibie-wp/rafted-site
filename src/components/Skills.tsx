@@ -21,7 +21,7 @@ const skillCategories = [
 
 export function Skills() {
   return (
-    <section id="skills" className="section-spacing dark-section">
+    <section id="skills" className="section-spacing section-dark">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto space-y-12">
           {/* Header */}
@@ -29,7 +29,7 @@ export function Skills() {
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
               Skills & Technologies
             </h2>
-            <p className="text-lg md:text-xl text-dark-section-foreground/70">
+            <p className="text-lg md:text-xl text-muted-foreground/70">
               Building with modern tools and user-centered thinking
             </p>
           </div>
@@ -38,7 +38,7 @@ export function Skills() {
           <div className="space-y-8 animate-fade-in-up">
             {skillCategories.map((category, index) => (
               <div key={index} className="space-y-4">
-                <h3 className="text-xl font-bold text-dark-section-foreground">
+                <h3 className="text-xl font-bold text-foreground">
                   {category.category}
                 </h3>
                 <div className="flex flex-wrap gap-3">
@@ -56,6 +56,9 @@ export function Skills() {
           </div>
         </div>
       </div>
+      
+      {/* Section fade effect */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none"></div>
     </section>
   );
 }
