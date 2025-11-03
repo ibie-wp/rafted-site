@@ -17,16 +17,16 @@ All colors MUST be HSL.
     --popover: 0 0% 100% / 0.8;
     --popover-foreground: 240 10% 10%;
 
-    --primary: 262 80% 60%;
+    --primary: 211 100% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 262 70% 70%;
+    --secondary: 211 86% 65%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 240 20% 94%;
     --muted-foreground: 240 5% 45%;
 
-    --accent: 262 60% 55%;
+    --accent: 142 72% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -34,7 +34,7 @@ All colors MUST be HSL.
 
     --border: 240 20% 90% / 0.3;
     --input: 240 20% 90% / 0.5;
-    --ring: 262 80% 60%;
+    --ring: 211 100% 50%;
 
     --radius: 1rem;
 
@@ -43,8 +43,8 @@ All colors MUST be HSL.
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     
     --shadow-soft: 0 2px 20px -4px hsl(0 0% 0% / 0.1);
-    --shadow-card: 0 8px 32px -4px hsl(262 80% 60% / 0.15);
-    --shadow-glow: 0 0 40px hsl(262 80% 60% / 0.3);
+    --shadow-card: 0 8px 32px -4px hsl(211 100% 50% / 0.15);
+    --shadow-glow: 0 0 40px hsl(211 100% 50% / 0.3);
     
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
@@ -61,16 +61,16 @@ All colors MUST be HSL.
     --popover: 0 0% 0% / 0.6;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 262 80% 65%;
+    --primary: 211 100% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 262 70% 75%;
+    --secondary: 211 86% 70%;
     --secondary-foreground: 0 0% 100%;
 
     --muted: 240 15% 15%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 262 60% 60%;
+    --accent: 142 72% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 50%;
@@ -78,15 +78,15 @@ All colors MUST be HSL.
 
     --border: 255 255 255 / 0.1;
     --input: 255 255 255 / 0.05;
-    --ring: 262 80% 65%;
+    --ring: 211 100% 55%;
 
     --glass-bg: 0 0 0 / 0.3;
     --glass-border: 255 255 255 / 0.1;
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     
     --shadow-soft: 0 2px 20px -4px hsl(0 0% 0% / 0.3);
-    --shadow-card: 0 8px 32px -4px hsl(262 80% 65% / 0.2);
-    --shadow-glow: 0 0 40px hsl(262 80% 65% / 0.4);
+    --shadow-card: 0 8px 32px -4px hsl(211 100% 55% / 0.2);
+    --shadow-glow: 0 0 40px hsl(211 100% 55% / 0.4);
     
     --gradient-speed: 15s;
   }
