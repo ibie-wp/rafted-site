@@ -1,28 +1,5 @@
-import { Card } from "./ui/card";
-import { GraduationCap, Code, Users, Briefcase } from "lucide-react";
+import { GraduationCap, Lightbulb, Target, Briefcase } from "lucide-react";
 
-const highlights = [
-  {
-    icon: GraduationCap,
-    title: "Education",
-    description: "Life Choices Academy Full-Stack Web Development Bootcamp graduate (2024)"
-  },
-  {
-    icon: Code,
-    title: "Technical Skills",
-    description: "HTML, CSS, JavaScript, Vue.js, Firebase, Git, GitHub, Netlify"
-  },
-  {
-    icon: Users,
-    title: "UX Focus",
-    description: "Shifting focus to user experience strategy and interface design"
-  },
-  {
-    icon: Briefcase,
-    title: "Experience",
-    description: "Strong communication and customer service background"
-  }
-];
 
 export function About() {
   return (
@@ -56,26 +33,71 @@ export function About() {
           </div>
 
           {/* Highlights Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 animate-fade-in-up">
-            {highlights.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <Card 
-                  key={index}
-                  className="p-6 space-y-4 border-border/50 hover:shadow-card transition-smooth"
-                >
-                  <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <Icon className="h-6 w-6 text-primary" />
-                  </div>
-                  <div className="space-y-2">
-                    <h3 className="font-bold text-lg">{item.title}</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </Card>
-              );
-            })}
+          <div className="grid md:grid-cols-2 gap-8 animate-fade-in-up">
+            {/* Education */}
+            <div className="glass-card p-6 rounded-2xl hover:shadow-glow transition-smooth">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center backdrop-blur-sm">
+                  <GraduationCap className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold">Education</h3>
+              </div>
+              <div className="space-y-4">
+                <div>
+                  <h4 className="font-semibold text-foreground">Life Choices Academy</h4>
+                  <p className="text-sm text-muted-foreground">Full Stack Web Development</p>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Comprehensive training in modern web technologies and development practices
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Key Skills */}
+            <div className="glass-card p-6 rounded-2xl hover:shadow-glow transition-smooth">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center backdrop-blur-sm">
+                  <Lightbulb className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold">Core Strengths</h3>
+              </div>
+              <ul className="space-y-3">
+                {["Planning & Coordination", "User Research", "Interface Design", "Team Communication"].map((skill, index) => (
+                  <li key={index} className="flex items-start gap-2 text-foreground">
+                    <span className="text-primary mt-1">•</span>
+                    <span>{skill}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* UX Focus */}
+            <div className="glass-card p-6 rounded-2xl hover:shadow-glow transition-smooth">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center backdrop-blur-sm">
+                  <Target className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold">UX Focus</h3>
+              </div>
+              <p className="text-muted-foreground">
+                Passionate about translating complex ideas into simple, usable experiences. 
+                I focus on understanding user needs and creating interfaces that just make sense.
+              </p>
+            </div>
+
+            {/* Experience */}
+            <div className="glass-card p-6 rounded-2xl hover:shadow-glow transition-smooth">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center backdrop-blur-sm">
+                  <Briefcase className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold">Background</h3>
+              </div>
+              <p className="text-muted-foreground">
+                Bringing technical knowledge from full-stack development into UX design, 
+                helping bridge the gap between design vision and technical implementation.
+              </p>
+            </div>
           </div>
         </div>
       </div>

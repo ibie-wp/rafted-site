@@ -45,8 +45,7 @@ export function Skills() {
                   {category.skills.map((skill, idx) => (
                     <Badge 
                       key={idx}
-                      variant="secondary"
-                      className="text-sm px-4 py-2 bg-card hover:bg-card/80 transition-smooth"
+                      className="text-sm px-4 py-2 glass-card text-foreground hover:shadow-glow transition-smooth border-primary/20"
                     >
                       {skill}
                     </Badge>

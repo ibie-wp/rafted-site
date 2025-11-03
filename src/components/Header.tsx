@@ -17,43 +17,26 @@ export function Header() {
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
+  const navItems = [
+    { label: "About", href: "about" },
+    { label: "Projects", href: "projects" },
+    { label: "Skills", href: "skills" },
+    { label: "Contact", href: "contact" }
+  ];
+
   return (
-    <header 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled 
-          ? 'bg-background/80 backdrop-blur-lg border-b border-border' 
-          : 'bg-transparent'
-      }`}
-    >
-      <nav className="container mx-auto px-6 py-4 flex items-center justify-center">
-        <div className="flex items-center gap-8">
-          <div className="hidden md:flex items-center gap-8">
+    <header className="fixed top-0 left-0 right-0 z-50 glass border-b border-border/30">
+      <nav className="container mx-auto px-6 py-4">
+        <div className="flex items-center justify-center gap-8">
+          {navItems.map((item) => (
             <button
-              onClick={() => scrollToSection("about")}
-              className="text-sm font-medium hover:text-primary transition-smooth"
+              key={item.href}
+              onClick={() => scrollToSection(item.href)}
+              className="text-sm font-medium text-foreground/70 hover:text-primary transition-smooth px-3 py-2 rounded-lg hover:bg-primary/10"
             >
-              About
+              {item.label}
             </button>
-            <button
-              onClick={() => scrollToSection("projects")}
-              className="text-sm font-medium hover:text-primary transition-smooth"
-            >
-              Projects
-            </button>
-            <button
-              onClick={() => scrollToSection("skills")}
-              className="text-sm font-medium hover:text-primary transition-smooth"
-            >
-              Skills
-            </button>
-            <button
-              onClick={() => scrollToSection("contact")}
-              className="text-sm font-medium hover:text-primary transition-smooth"
-            >
-              Contact
-            </button>
-          </div>
-          
+          ))}
           <ThemeToggle />
         </div>
       </nav>

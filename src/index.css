@@ -8,42 +8,43 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 10%;
+    --background: 240 20% 97%;
+    --foreground: 240 10% 10%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 10%;
+    --card: 0 0% 100% / 0.6;
+    --card-foreground: 240 10% 10%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 10%;
+    --popover: 0 0% 100% / 0.8;
+    --popover-foreground: 240 10% 10%;
 
-    --primary: 262 83% 58%;
+    --primary: 262 80% 60%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 221 83% 53%;
+    --secondary: 262 70% 70%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 240 20% 94%;
+    --muted-foreground: 240 5% 45%;
 
-    --accent: 142 76% 36%;
+    --accent: 262 60% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
-    --ring: 262 83% 58%;
+    --border: 240 20% 90% / 0.3;
+    --input: 240 20% 90% / 0.5;
+    --ring: 262 80% 60%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
-    --dark-section: 0 0% 7%;
-    --dark-section-foreground: 0 0% 95%;
+    --glass-bg: 255 255 255 / 0.1;
+    --glass-border: 255 255 255 / 0.2;
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     
     --shadow-soft: 0 2px 20px -4px hsl(0 0% 0% / 0.1);
-    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.08);
-    --shadow-glow: 0 0 40px hsl(262 83% 58% / 0.3);
+    --shadow-card: 0 8px 32px -4px hsl(262 80% 60% / 0.15);
+    --shadow-glow: 0 0 40px hsl(262 80% 60% / 0.3);
     
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     
@@ -51,40 +52,41 @@ All colors MUST be HSL.
   }
 
   .dark {
-    --background: 0 0% 10%;
+    --background: 240 15% 8%;
     --foreground: 0 0% 95%;
 
-    --card: 0 0% 14%;
+    --card: 0 0% 0% / 0.4;
     --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 14%;
+    --popover: 0 0% 0% / 0.6;
     --popover-foreground: 0 0% 95%;
 
-    --primary: 262 83% 65%;
+    --primary: 262 80% 65%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 221 83% 60%;
+    --secondary: 262 70% 75%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 0 0% 18%;
+    --muted: 240 15% 15%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 142 76% 45%;
+    --accent: 262 60% 60%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 50%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 262 83% 65%;
+    --border: 255 255 255 / 0.1;
+    --input: 255 255 255 / 0.05;
+    --ring: 262 80% 65%;
 
-    --dark-section: 0 0% 5%;
-    --dark-section-foreground: 0 0% 95%;
+    --glass-bg: 0 0 0 / 0.3;
+    --glass-border: 255 255 255 / 0.1;
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     
     --shadow-soft: 0 2px 20px -4px hsl(0 0% 0% / 0.3);
-    --shadow-card: 0 4px 24px -4px hsl(0 0% 0% / 0.2);
-    --shadow-glow: 0 0 40px hsl(262 83% 65% / 0.4);
+    --shadow-card: 0 8px 32px -4px hsl(262 80% 65% / 0.2);
+    --shadow-glow: 0 0 40px hsl(262 80% 65% / 0.4);
     
     --gradient-speed: 15s;
   }
@@ -170,5 +172,21 @@ All colors MUST be HSL.
   .animate-gradient {
     background-size: 200% 200%;
     animation: gradient var(--gradient-speed) ease infinite;
+  }
+  
+  .glass {
+    background: rgba(var(--glass-bg));
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid rgba(var(--glass-border));
+    box-shadow: var(--glass-shadow);
+  }
+  
+  .glass-card {
+    background: rgba(var(--glass-bg));
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(var(--glass-border));
+    box-shadow: var(--glass-shadow);
   }
 }
