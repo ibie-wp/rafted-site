@@ -1,5 +1,6 @@
-import { GraduationCap, Lightbulb, Target, Briefcase } from "lucide-react";
-
+import { GraduationCap, Lightbulb, Target, Briefcase, Download } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import portraitImg from "@/assets/portrait.jpg";
 
 export function About() {
   return (
@@ -12,23 +13,55 @@ export function About() {
               About Me
             </h2>
             
-            <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed">
-              <p>
-                I'm a Life Choices Academy graduate with a background in full-stack 
-                web development, now shifting my focus toward UX and product design.
-              </p>
-              
-              <p>
-                I enjoy translating between people and projects — helping teams make 
-                clear, user-driven decisions and turning complex ideas into simple, 
-                usable experiences.
-              </p>
-              
-              <p>
-                I'm drawn to roles where communication, structure, and design thinking 
-                meet. My strengths lie in planning, team coordination, and understanding 
-                how users interact with digital products.
-              </p>
+            <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
+              {/* Portrait Image */}
+              <div className="relative w-64 h-80 flex-shrink-0">
+                <div className="w-full h-full rounded-2xl overflow-hidden relative">
+                  <img 
+                    src={portraitImg} 
+                    alt="Ibrahim Karlie portrait"
+                    className="w-full h-full object-cover"
+                  />
+                  {/* Faded edge effect */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[hsl(220,25%,12%)] via-transparent to-transparent opacity-60"></div>
+                  <div className="absolute inset-0 rounded-2xl ring-1 ring-white/10"></div>
+                </div>
+              </div>
+
+              {/* Text Content */}
+              <div className="space-y-6 text-lg md:text-xl text-muted-foreground leading-relaxed flex-1">
+                <p>
+                  I'm a Life Choices Academy graduate with a background in full-stack 
+                  web development, now shifting my focus toward UX and product design.
+                </p>
+                
+                <p>
+                  I enjoy translating between people and projects — helping teams make 
+                  clear, user-driven decisions and turning complex ideas into simple, 
+                  usable experiences.
+                </p>
+                
+                <p>
+                  I'm drawn to roles where communication, structure, and design thinking 
+                  meet. My strengths lie in planning, team coordination, and understanding 
+                  how users interact with digital products.
+                </p>
+
+                {/* Download CV Button */}
+                <div className="pt-4">
+                  <Button asChild size="lg" className="gap-2">
+                    <a 
+                      href="/Ibrahim-Karlie-CV.pdf" 
+                      download="Ibrahim-Karlie-CV.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Download className="h-5 w-5" />
+                      Download CV
+                    </a>
+                  </Button>
+                </div>
+              </div>
             </div>
           </div>
 
