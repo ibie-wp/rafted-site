@@ -19,10 +19,8 @@ export function Hero() {
         <div className="max-w-4xl mx-auto text-center space-y-12 animate-fade-in">
           {/* Main Heading with Name - Separated for clarity */}
           <div className="space-y-8">
-            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight leading-none">
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-fade-in">
-                Ibrahim Karlie
-              </span>
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold tracking-tight leading-none text-primary animate-fade-in">
+              Ibrahim Karlie
             </h1>
             
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight text-foreground">
@@ -65,9 +63,6 @@ export function Hero() {
           </div>
         </div>
       </div>
-      
-      {/* Decorative section divider */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent z-20"></div>
     </section>
   );
 }
