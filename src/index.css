@@ -190,20 +190,25 @@ All colors MUST be HSL.
     box-shadow: var(--glass-shadow);
   }
   
-  .section-dark {
-    background: hsl(220 25% 12%);
-    color: hsl(0 0% 95%);
-    position: relative;
-  }
-  
-  .section-dark h1,
-  .section-dark h2,
-  .section-dark h3,
-  .section-dark h4,
-  .section-dark h5,
-  .section-dark h6 {
-    color: hsl(0 0% 95%);
-  }
+.section-dark {
+  background: hsl(220 25% 12%);
+  position: relative;
+
+  /* Ensure high contrast text in dark sections (light mode) */
+  --foreground: 0 0% 95%;
+  --muted-foreground: 0 0% 80%;
+
+  color: hsl(var(--foreground));
+}
+
+.section-dark h1,
+.section-dark h2,
+.section-dark h3,
+.section-dark h4,
+.section-dark h5,
+.section-dark h6 {
+  color: hsl(var(--foreground));
+}
   
   .section-light {
     background: hsl(var(--background));
