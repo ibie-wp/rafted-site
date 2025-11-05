@@ -106,14 +106,14 @@ export function Skills() {
           >
             <CarouselContent className="-ml-4">
               {badges.map((badge, index) => (
-                <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
-                  <div className="glass-card p-4 rounded-lg hover:shadow-glow transition-smooth">
+                <CarouselItem key={index} className="pl-4 md:basis-1/3 lg:basis-1/4">
+                  <div className="glass-card p-3 rounded-lg hover:shadow-glow transition-smooth max-w-[150px] mx-auto">
                     <img
                       src={badge.image}
                       alt={badge.name}
                       className="w-full h-auto rounded-lg"
                     />
-                    <p className="text-sm text-center mt-2 text-muted-foreground">
+                    <p className="text-xs text-center mt-2 text-muted-foreground">
                       {badge.name}
                     </p>
                   </div>
