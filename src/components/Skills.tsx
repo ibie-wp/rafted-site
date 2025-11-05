@@ -1,4 +1,6 @@
 import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
+import { ExternalLink } from "lucide-react";
 import {
   Carousel,
   CarouselContent,
@@ -47,6 +49,13 @@ const badges = [
   { name: "WordPress Site Builder", image: wordpress },
 ];
 
+const certificates = [
+  { name: "Data Science with Python", url: "/certificates/data-science-python.pdf" },
+  { name: "Data Analytics Essentials", url: "/certificates/data-analytics.pdf" },
+  { name: "Introduction to Cybersecurity", url: "/certificates/cybersecurity.pdf" },
+  { name: "Introduction to Data Science", url: "/certificates/data-science.pdf" },
+];
+
 export function Skills() {
   return (
     <section id="skills" className="section-spacing section-dark">
@@ -86,7 +95,7 @@ export function Skills() {
         {/* Badges Section */}
         <div className="space-y-8 animate-fade-in-up">
           <h3 className="text-xl font-bold text-foreground text-center">
-            Certifications & Badges
+            Badges
           </h3>
           <Carousel
             opts={{
@@ -114,6 +123,30 @@ export function Skills() {
             <CarouselPrevious />
             <CarouselNext />
           </Carousel>
+        </div>
+
+        {/* Certificates Section */}
+        <div className="space-y-8 animate-fade-in-up">
+          <h3 className="text-xl font-bold text-foreground text-center">
+            Certificates
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+            {certificates.map((certificate, index) => (
+              <Button
+                key={index}
+                variant="outline"
+                className="glass-card h-auto py-4 px-6 hover:shadow-glow transition-smooth border-primary/20"
+                asChild
+              >
+                <a href={certificate.url} target="_blank" rel="noopener noreferrer">
+                  <span className="flex items-center gap-2 justify-center w-full">
+                    <span className="text-sm">{certificate.name}</span>
+                    <ExternalLink className="h-4 w-4" />
+                  </span>
+                </a>
+              </Button>
+            ))}
+          </div>
         </div>
       </div>
     </div>
