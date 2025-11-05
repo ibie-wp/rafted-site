@@ -3,19 +3,19 @@ import { Badge } from "./ui/badge";
 const skillCategories = [
   {
     category: "Development",
-    skills: ["HTML", "CSS", "JavaScript", "Vue.js"]
+    skills: ["HTML5", "CSS3", "JavaScript (ES6+)", "Vue.js", "Bootstrap", "Node.js", "PHP", "MySQL", "Oracle APEX"]
   },
   {
     category: "Tools & Platforms",
-    skills: ["Git", "GitHub", "Netlify", "Firebase"]
+    skills: ["Git", "GitHub", "WordPress", "Figma", "AI Fundamentals & Prompting", "Trello", "Jira", "Notion"]
   },
   {
     category: "Design & UX",
-    skills: ["UI/UX Fundamentals", "Responsive Design", "User Flows", "Wireframing"]
+    skills: ["Logo Creation", "Visual Design & Aesthetic Sense", "UX/UI Design Principles", "Wireframing & Prototyping", "Design Logic", "Usability Testing", "Accessibility Awareness"]
   },
   {
     category: "Soft Skills",
-    skills: ["Team Collaboration", "Communication", "Agile Methodology", "Customer Service"]
+    skills: ["Team Coordination & Project Management", "Communication & Collaboration", "Customer Handling", "Leadership & Task Delegation", "Self-Upskilling & Continuous Learning", "Critical Thinking", "Problem Solving", "Time Management"]
   }
 ];
 
