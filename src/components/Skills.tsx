@@ -7,7 +7,7 @@ const skillCategories = [
   },
   {
     category: "Tools & Platforms",
-    skills: ["Git", "GitHub", "WordPress", "Figma", "AI Fundamentals & Prompting", "Trello", "Jira", "Notion"]
+    skills: ["Git", "GitHub", "WordPress", "Figma", "AI Fundamentals & Prompting", "Canva"]
   },
   {
     category: "Design & UX",
