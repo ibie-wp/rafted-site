@@ -8,6 +8,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import cloudEssentials from "@/assets/badges/cloud-essentials.png";
 import dataAnalytics from "@/assets/badges/data-analytics.png";
 import dataSciencePython from "@/assets/badges/data-science-python.png";
@@ -102,12 +103,19 @@ export function Skills() {
               align: "start",
               loop: true,
             }}
+            plugins={[
+              Autoplay({
+                delay: 3000,
+                stopOnInteraction: true,
+                stopOnMouseEnter: true,
+              }),
+            ]}
             className="w-full max-w-3xl mx-auto"
           >
             <CarouselContent className="-ml-4">
               {badges.map((badge, index) => (
                 <CarouselItem key={index} className="pl-4 md:basis-1/3 lg:basis-1/4">
-                  <div className="glass-card p-3 rounded-lg hover:shadow-glow transition-smooth max-w-[150px] mx-auto">
+                  <div className="glass-card p-3 rounded-lg hover:shadow-glow hover:scale-110 transition-smooth max-w-[150px] mx-auto">
                     <img
                       src={badge.image}
                       alt={badge.name}
