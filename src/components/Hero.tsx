@@ -58,7 +58,15 @@ export function Hero() {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="pt-16 animate-bounce">
+          <div 
+            className="pt-16 animate-bounce cursor-pointer"
+            onClick={() => {
+              const element = document.getElementById("about");
+              element?.scrollIntoView({ behavior: "smooth" });
+            }}
+            role="button"
+            aria-label="Scroll to About section"
+          >
             <ArrowDown className="h-8 w-8 mx-auto text-primary" />
           </div>
         </div>
