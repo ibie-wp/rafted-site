@@ -1,7 +1,8 @@
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
-import { Mail, Phone, Github, MapPin } from "lucide-react";
+import { Textarea } from "./ui/textarea";
+import { Mail, Phone, Github, MapPin, Send } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useToast } from "./ui/use-toast";
@@ -50,9 +51,14 @@ export function Contact() {
       const response = await fetch("https://formspree.io/f/xnnqpvob", {
         method: "POST",
         headers: {
+          "Accept": "application/json",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          message: data.message,
+        }),
       });
 
       if (response.ok) {
@@ -62,9 +68,12 @@ export function Contact() {
         });
         reset();
       } else {
+        const errorData = await response.json();
+        console.error("Formspree error:", errorData);
         throw new Error("Failed to send message");
       }
     } catch (error) {
+      console.error("Submit error:", error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again.",
@@ -96,13 +105,15 @@ export function Contact() {
               {contactInfo.map((item, index) => {
                 const Icon = item.icon;
                 const content = (
-                  <div className="glass-card p-6 rounded-2xl hover:shadow-glow transition-smooth space-y-3">
-                    <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center backdrop-blur-sm">
-                      <Icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <div className="space-y-1">
-                      <p className="text-sm text-muted-foreground">{item.label}</p>
-                      <p className="font-medium text-foreground">{item.value}</p>
+                  <div className="glass-card p-5 rounded-2xl hover:shadow-glow transition-smooth group">
+                    <div className="flex items-center gap-4">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                        <Icon className="h-5 w-5 text-primary" />
+                      </div>
+                      <div className="space-y-0.5">
+                        <p className="text-xs uppercase tracking-wider text-muted-foreground">{item.label}</p>
+                        <p className="font-medium text-foreground">{item.value}</p>
+                      </div>
                     </div>
                   </div>
                 );
@@ -113,7 +124,7 @@ export function Contact() {
                     href={item.href}
                     target={item.href.startsWith('http') ? '_blank' : undefined}
                     rel={item.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                    className="block group"
+                    className="block"
                   >
                     {content}
                   </a>
@@ -123,23 +134,30 @@ export function Contact() {
               })}
             </div>
 
-            {/* Contact Form */}
-            <form onSubmit={handleSubmit(onSubmit)} className="glass-card p-8 rounded-2xl space-y-6">
-              <div className="space-y-2">
-                <Label htmlFor="name" className="text-foreground">Name</Label>
+            {/* Contact Form - Clean Glass Style */}
+            <form 
+              onSubmit={handleSubmit(onSubmit)} 
+              className="glass-card p-6 md:p-8 rounded-2xl space-y-5"
+            >
+              <div className="space-y-1.5">
+                <Label htmlFor="name" className="text-sm font-medium text-foreground">
+                  Name
+                </Label>
                 <Input
                   id="name"
                   {...register("name", { required: "Name is required" })}
-                  className="glass border-border/50 bg-background/50"
+                  className="h-12 rounded-xl border-border/30 bg-background/30 backdrop-blur-sm focus:border-primary/50 focus:bg-background/50 transition-all"
                   placeholder="Your name"
                 />
                 {errors.name && (
-                  <p className="text-sm text-destructive">{errors.name.message}</p>
+                  <p className="text-xs text-destructive mt-1">{errors.name.message}</p>
                 )}
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="email" className="text-foreground">Email</Label>
+              <div className="space-y-1.5">
+                <Label htmlFor="email" className="text-sm font-medium text-foreground">
+                  Email
+                </Label>
                 <Input
                   id="email"
                   type="email"
@@ -150,34 +168,43 @@ export function Contact() {
                       message: "Invalid email address",
                     },
                   })}
-                  className="glass border-border/50 bg-background/50"
+                  className="h-12 rounded-xl border-border/30 bg-background/30 backdrop-blur-sm focus:border-primary/50 focus:bg-background/50 transition-all"
                   placeholder="your.email@example.com"
                 />
                 {errors.email && (
-                  <p className="text-sm text-destructive">{errors.email.message}</p>
+                  <p className="text-xs text-destructive mt-1">{errors.email.message}</p>
                 )}
               </div>
 
-              <div className="space-y-2">
-                <Label htmlFor="message" className="text-foreground">Message</Label>
-                <textarea
+              <div className="space-y-1.5">
+                <Label htmlFor="message" className="text-sm font-medium text-foreground">
+                  Message
+                </Label>
+                <Textarea
                   id="message"
                   {...register("message", { required: "Message is required" })}
-                  className="glass border-border/50 bg-background/50 flex min-h-[120px] w-full rounded-md border px-3 py-2 text-base ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 md:text-sm"
+                  className="min-h-[120px] rounded-xl border-border/30 bg-background/30 backdrop-blur-sm focus:border-primary/50 focus:bg-background/50 transition-all resize-none"
                   placeholder="Your message..."
                 />
                 {errors.message && (
-                  <p className="text-sm text-destructive">{errors.message.message}</p>
+                  <p className="text-xs text-destructive mt-1">{errors.message.message}</p>
                 )}
               </div>
 
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full"
+                className="w-full h-12 rounded-xl text-base font-medium gap-2"
                 size="lg"
               >
-                {isSubmitting ? "Sending..." : "Send Message"}
+                {isSubmitting ? (
+                  "Sending..."
+                ) : (
+                  <>
+                    Send Message
+                    <Send className="h-4 w-4" />
+                  </>
+                )}
               </Button>
             </form>
           </div>
