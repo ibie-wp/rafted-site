@@ -6,10 +6,11 @@ import { Skills } from "@/components/Skills";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
+import { BackToTop } from "@/components/BackToTop";
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen overflow-x-hidden">
       <Header />
       <main>
         <Hero />
@@ -19,6 +20,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
       <Toaster />
     </div>
   );
