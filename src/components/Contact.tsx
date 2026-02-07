@@ -2,7 +2,7 @@ import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
-import { Mail, Phone, Github, MapPin, Send } from "lucide-react";
+import { Mail, Phone, Github, MapPin, Send, Linkedin } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useToast } from "./ui/use-toast";
@@ -25,6 +25,12 @@ const contactInfo = [
     label: "GitHub",
     value: "github.com/ibie-wp",
     href: "https://github.com/ibie-wp",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "linkedin.com/in/ibrahim-karlie-bb814b367",
+    href: "https://www.linkedin.com/in/ibrahim-karlie-bb814b367",
   },
   {
     icon: MapPin,
@@ -133,7 +139,7 @@ export function Contact() {
                 );
 
                 return item.href ? (
-                  <a
+                  <a  
                     key={index}
                     href={item.href}
                     target={
