@@ -8,6 +8,7 @@ const projects = [
     description: "A modern, responsive portfolio website showcasing UX/UI design projects with interactive elements and smooth animations.",
     technologies: ["React", "TypeScript", "Tailwind CSS"],
     link: "https://github.com/ibie-wp/personal-portfolio",
+    demo: "#",
     image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=600&fit=crop"
   },
   {

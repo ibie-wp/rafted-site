@@ -36,7 +36,7 @@ export function About() {
                 </p>
                 
                 <p>
-                  I enjoy translating between people and projects — helping teams make 
+                  I enjoy translating between people and projects, helping teams make 
                   clear, user-driven decisions and turning complex ideas into simple, 
                   usable experiences.
                 </p>
