@@ -51,8 +51,8 @@ export function About() {
                 <div className="pt-4">
                   <Button asChild size="lg" className="gap-2">
                     <a 
-                      href="/Ibrahim-Karlie-CV.pdf" 
-                      download="Ibrahim-Karlie-CV.pdf"
+                      href="/Ibrahim Karlie CV.pdf" 
+                      download="Ibrahim Karlie CV.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
